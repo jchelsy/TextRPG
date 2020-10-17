@@ -7,6 +7,14 @@
 /*  Constructors  */
 Equipment::Equipment()
 {  // Default
+
+	// Set all default fall-back variables
+	// for the Equipment object.
+
+	// If another Constructor doesn't set
+	// any of these variables specifically,
+	// it defaults back to these set values.
+
 	setName("");
 	setType("");
 	setElement("N/A");
@@ -16,6 +24,7 @@ Equipment::Equipment()
 
 Equipment::Equipment(std::string name, std::string type, std::string elem, std::string eff, int dura)
 {
+	// Set variables for the Equipment object
 	setName(name);
 	setType(type);
 

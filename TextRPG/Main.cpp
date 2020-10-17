@@ -11,7 +11,6 @@
 #include "Functions.h"	// Import Useful Methods
 
 
-
 int main() {
 	// Initialize local variables
 	std::string strChoice;  // userChoice

@@ -13,6 +13,7 @@ Item::Item()
 
 Item::Item(std::string name, std::string type, std::string eff, int dura)
 {
+	// Set variables for the Item object
 	setName(name);
 	setType(type);
 
@@ -24,14 +25,14 @@ Item::Item(std::string name, std::string type, std::string eff, int dura)
 /*  Method(s)  */
 void Item::Stats()
 {
-	// Item WITHOUT durability
-	if (getDurability() == 101) {
-		std::cout << "\t\t*** " << getName() << " ***" << std::endl;
-	}
-	// Item WITH durability (0-100)
-	else {
-		std::cout << "\t\t*** " << getName() << " [" << getDurability() << "%]" << " ***" << std::endl;
-	}
+	// WITHOUT Durability (-1 >= DURABILITY >= 101)
+	if (getDurability() > 100 || getDurability() < 0) std::cout << "\t\t*** " << getName() << " ***" << std::endl;
+
+	// WITH Durability (0-100)
+	else std::cout << "\t\t*** " << getName() << " [" << getDurability() << "%]" << " ***" << std::endl;
+
+	// Type
 	std::cout << "Item Type  : " << getType() << std::endl;
+	// Sp. Effect
 	std::cout << "Sp. Effect : " << getEffect() << std::endl;
 }
