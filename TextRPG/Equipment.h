@@ -4,7 +4,9 @@
 
 /*  Header Libary Import(s)  */
 /*  =======================  */
-#include "Functions.h"  // Import Useful Methods
+#include "Functions.h"
+#include "Choices.h"
+
 
 /*  Equipment Class  */
 class Equipment

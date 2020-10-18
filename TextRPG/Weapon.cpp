@@ -5,7 +5,7 @@
 #include "Weapon.h"  // Weapon Class
 
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Weapon::Weapon()
 {  // Default
 

@@ -5,7 +5,7 @@
 #include "Armor.h"  // Armor Class
 
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Armor::Armor()
 {  // Default
 

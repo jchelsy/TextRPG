@@ -5,7 +5,7 @@
 #include "Item.h"  // Item Class
 
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Item::Item()
 {  // Default
 

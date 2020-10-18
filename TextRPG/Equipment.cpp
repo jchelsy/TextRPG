@@ -4,7 +4,7 @@
 /*  =======================  */
 #include "Equipment.h"  // Equipment Class
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Equipment::Equipment()
 {  // Default
 
@@ -84,7 +84,6 @@ int Equipment::getDurability()
 {
 	return DURABILITY;
 }
-
 
 // POWER
 void Equipment::setPower(int dmg)

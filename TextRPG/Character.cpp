@@ -5,7 +5,7 @@
 #include "Character.h"  // Character Class
 
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Character::Character()
 {  // Default
 
@@ -35,19 +35,19 @@ Character::Character()
 	setVITBoost(NULL);
 }
 
-Character::Character(std::string name, std::string location, std::string profession, int level=1, int experience=0)
+Character::Character(std::string name, std::string location, std::string profession, int level, int experience)
 {
 	// Initialize stat variables
-	int strength;
-	int defense;
-	int agility;
-	int stamina;
-	int intelligence;
-	int vitality;
+	int strength = 0;
+	int defense = 0;
+	int agility = 0;
+	int stamina = 0;
+	int intelligence = 0;
+	int vitality = 0;
 
 	// Set variables for the Character object
 	setName(name);
-	setLocation(location);
+	setArea(location);
 	setClass(profession);
 	setLevel(level);
 	setEXP(experience);
@@ -133,25 +133,26 @@ Character::Character(std::string name, std::string location, std::string profess
 void Character::Stats()
 {
 	// Title
-	std::cout << "\t\t=============================" << std::endl;
-	std::cout << "\t\t*** Character Information ***" << std::endl;
-	std::cout << "\t\t=============================" << std::endl;
+	std::cout << std::endl;
+	std::cout << "  ======================" << std::endl;
+	std::cout << "  *** Character Info ***" << std::endl;
+	std::cout << "  ======================" << std::endl;
 	// Basic info
-	std::cout << "Name   : " << getName() << std::endl;
-	std::cout << "Class  : " << getClass() << std::endl;
-	std::cout << "Level  : " << getLevel() << std::endl;
+	std::cout << "  Name   : " << getName() << std::endl;
+	std::cout << "  Class  : " << getClass() << std::endl;
+	std::cout << "  Level  : " << getLevel() << std::endl;
 	// Experience
-	std::cout << "EXP    : (" << getEXP() << "/" << getEXPReq() << ")" << std::endl;
+	std::cout << "  EXP    : (" << getEXP() << "/" << getEXPReq() << ")" << std::endl;
 	// Health / Mana
-	std::cout << "Health : (" << getHealth() << "/" << getMaxHealth() << ")" << std::endl;
-	std::cout << "Mana   : " << getMana() << "/" << getMaxMana() << ")" << std::endl;
-	std::cout << "=====================" << std::endl;
+	std::cout << "  Health : (" << getHealth() << "/" << getMaxHealth() << ")" << std::endl;
+	std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << std::endl;
+	std::cout << "  =====================" << std::endl;
 	// Stats
-	std::cout << "STR: " << getSTR() << " [+" << getSTRBoost() << "]" << std::endl;
-	std::cout << "AGI: " << getAGI() << " [+" << getAGIBoost() << "]" << std::endl;
-	std::cout << "DEF: " << getDEF() << " [+" << getDEFBoost() << "]" << std::endl;
-	std::cout << "STA: " << getSTA() << " [+" << getSTABoost() << "]" << std::endl;
-	std::cout << "INT: " << getINT() << " [+" << getINTBoost() << "]" << std::endl;
+	std::cout << "  STR: " << getSTR() << " [+" << getSTRBoost() << "]" << std::endl;
+	std::cout << "  AGI: " << getAGI() << " [+" << getAGIBoost() << "]" << std::endl;
+	std::cout << "  DEF: " << getDEF() << " [+" << getDEFBoost() << "]" << std::endl;
+	std::cout << "  STA: " << getSTA() << " [+" << getSTABoost() << "]" << std::endl;
+	std::cout << "  INT: " << getINT() << " [+" << getINTBoost() << "]" << std::endl;
 }
 
 void Character::addToInv(Equipment item)
@@ -191,9 +192,9 @@ void Character::removeFromInv(Equipment item)
 void Character::viewInv()
 {
 	// Title
-	std::cout << "\n=================";
-	std::cout << "\n*** Equipment ***";
-	std::cout << "\n=================\n";
+	std::cout << "\n  =================";
+	std::cout << "\n  *** Equipment ***";
+	std::cout << "\n  =================\n";
 
 	// Initialize strings for every wearable equipment
 	std::string helmS;
@@ -271,72 +272,72 @@ void Character::viewInv()
 	   ===============================================	*/
 
 	// If a headpiece is equipped, output its defense boost value
-	if (helm != NULL) std::cout << "    Headpiece  : " << helmS << " [DEF+" << helm->getDefense() << "]" << std::endl;
+	if (helm != NULL) std::cout << "  Headpiece  : " << helmS << " [DEF+" << helm->getDefense() << "]" << std::endl;
 	// Otherwise, don't
-	else std::cout << "    Headpiece  : " << helmS << std::endl;
+	else std::cout << "  Headpiece  : " << helmS << std::endl;
 
 	// If a chestpiece is equipped, output its defense boost value
-	if (chest != NULL) std::cout << "    Chestpiece : " << chestS << " [DEF+" << chest->getDefense() << "]" << std::endl;
+	if (chest != NULL) std::cout << "  Chestpiece : " << chestS << " [DEF+" << chest->getDefense() << "]" << std::endl;
 	// Otherwise, don't
-	else std::cout << "    Chestpiece : " << chestS << std::endl;
+	else std::cout << "  Chestpiece : " << chestS << std::endl;
 
 	// If leggings are equipped, output its defense boost value
-	if (legs != NULL) std::cout << "    Leggings   : " << legsS << " [DEF+" << legs->getDefense() << "]" << std::endl;
+	if (legs != NULL) std::cout << "  Leggings   : " << legsS << " [DEF+" << legs->getDefense() << "]" << std::endl;
 	// Otherwise, don't
-	else std::cout << "    Leggings   : " << legsS << std::endl;
+	else std::cout << "  Leggings   : " << legsS << std::endl;
 
 	// If boots are equipped, output its defense boost value
-	if (boots != NULL) std::cout << "    Boots      : " << bootsS << " [DEF+" << boots->getDefense() << "]" << std::endl;
+	if (boots != NULL) std::cout << "  Boots      : " << bootsS << " [DEF+" << boots->getDefense() << "]" << std::endl;
 	// Otherwise, don't
-	else std::cout << "    Boots      : " << bootsS << std::endl;
+	else std::cout << "  Boots      : " << bootsS << std::endl;
 
 
 	/* Output Equipped Weapon(s) */
 
 	// One-Handed
 	if (oneHanded != NULL && (mainHand == NULL && offHand == NULL) && shield == NULL)
-		std::cout << "\n    Weapon: " << oneHandedS << " [DMG: " << oneHanded->getPower() << "]" << std::endl;
+		std::cout << "\n  Weapon: " << oneHandedS << " [DMG: " << oneHanded->getPower() << "]" << std::endl;
 	// Main-Hand & Off-Hand
 	else if (oneHanded == NULL && (mainHand != NULL && offHand != NULL) && shield == NULL)
 	{
-		std::cout << "\n    Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
-		std::cout << "    Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
+		std::cout << "\n  Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+		std::cout << "  Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
 	}
 	// Main-Hand
 	else if (oneHanded == NULL && (mainHand != NULL && offHand == NULL) && shield == NULL)
 	{
-		std::cout << "\n    Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
-		std::cout << "    Off Hand  : N/A" << std::endl;
+		std::cout << "\n  Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+		std::cout << "  Off Hand  : N/A" << std::endl;
 	}
 	// Off-Hand
 	else if (oneHanded == NULL && (mainHand == NULL && offHand != NULL) && shield == NULL)
 	{
-		std::cout << "\n    Main Hand : N/A" << std::endl;
-		std::cout << "    Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
+		std::cout << "\n  Main Hand : N/A" << std::endl;
+		std::cout << "  Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
 	}
 	// Main-Hand & Shield
 	else if (oneHanded == NULL && (mainHand != NULL && offHand == NULL) && shield != NULL)
 	{
-		std::cout << "\n    Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
-		std::cout << "    Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
+		std::cout << "\n  Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+		std::cout << "  Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
 	}
 	// Shield
 	else if (oneHanded == NULL && (mainHand == NULL && offHand == NULL) && shield != NULL)
 	{
-		std::cout << "\n    Main Hand : N/A" << std::endl;
-		std::cout << "    Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
+		std::cout << "\n  Main Hand : N/A" << std::endl;
+		std::cout << "  Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
 	}
 	// Empty
-	else std::cout << "\n    Weapon(s): N/A" << std::endl;
+	else std::cout << "\n  Weapon(s): N/A" << std::endl;
 
 
 	/* Output Inventory */
 	/* ================ */
 
 	// Title
-	std::cout << "\n=================";
-	std::cout << "\n*** Inventory ***";
-	std::cout << "\n=================" << std::endl;
+	std::cout << "\n  =================";
+	std::cout << "\n  *** Inventory ***";
+	std::cout << "\n  =================" << std::endl;
 
 	// Initalize variables
 	std::vector<std::string> items;
@@ -360,22 +361,22 @@ void Character::viewInv()
 	for (auto it = results.cbegin(); it != results.cend(); ++it)
 		// Output player inventory with # of items
 		//   i.e. "Health Potion (x4)"
-		std::cout << "    " << it->first << " (x" << it->second << ")" << std::endl;
+		std::cout << "  " << it->first << " (x" << it->second << ")" << std::endl;
 
 
 	/* Output Currency */
 	/* =============== */
 
 	// Title
-	std::cout << "\n===================";
-	std::cout << "\n*** Money Pouch ***";
-	std::cout << "\n===================" << std::endl;
+	std::cout << "\n  ===================";
+	std::cout << "\n  *** Money Pouch ***";
+	std::cout << "\n  ===================" << std::endl;
 	// Amount of Gold
-	std::cout << "    Gold   : " << getGold() << std::endl;
+	std::cout << "  Gold   : " << getGold() << std::endl;
 	// Amount of Silver
-	std::cout << "    Silver : " << getSilver() << std::endl;
+	std::cout << "  Silver : " << getSilver() << std::endl;
 	// Amount of Copper
-	std::cout << "    Copper : " << getCopper() << std::endl;
+	std::cout << "  Copper : " << getCopper() << std::endl;
 }
 
 void Character::equipWeapon(Equipment item)
@@ -452,6 +453,279 @@ void Character::unequipArmor(Equipment item)
 	EQUIPPED.erase(EQUIPPED.begin() + index);
 }
 
+void Character::Overview()
+{
+	// Initialize strings for every wearable equipment
+	std::string helmS;
+	std::string chestS;
+	std::string legsS;
+	std::string bootsS;
+	std::string mainHandS;
+	std::string offHandS;
+	std::string oneHandedS;
+	std::string shieldS;
+
+	// Loop for the amount items the player has equipped
+	for (unsigned int i = 0; i < EQUIPPED.size(); i++)
+	{
+		// Get the values for all equipped items and override
+		// their public variables in the Character object
+		if (EQUIPPED[i].getType() == "Headpiece")
+			helm = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType() == "Chestpiece")
+			chest = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType() == "Leggings")
+			legs = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType() == "Boots")
+			boots = &EQUIPPED[i];
+
+
+		else if (EQUIPPED[i].getType().rfind("M-", 0) == 0)
+			mainHand = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType().rfind("O-", 0) == 0)
+			offHand = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType().rfind("1H-", 0) == 0 || EQUIPPED[i].getType() == "Bow")
+			oneHanded = &EQUIPPED[i];
+
+		else if (EQUIPPED[i].getType() == "Shield")
+			shield = &EQUIPPED[i];
+	}
+
+	/*	After all items have been detected:
+		( items not equipped have their corresponding
+		  Equipment* pointer still set to NULL )
+	   =============================================== */
+
+	   // Check if each type of armor is equipped or not
+	   // If an armor piece is equipped, retrieve its name
+	if (helm != NULL) helmS = helm->getName();
+	else helmS = "N/A";
+
+	if (chest != NULL) chestS = chest->getName();
+	else chestS = "N/A";
+
+	if (legs != NULL) legsS = legs->getName();
+	else legsS = "N/A";
+
+	if (boots != NULL) bootsS = boots->getName();
+	else bootsS = "N/A";
+
+	// Check if each type of weapon is equipped or not
+	// If a weapon is equipped, retrieve its name
+	if (mainHand != NULL) mainHandS = mainHand->getName();
+
+	if (offHand != NULL) offHandS = offHand->getName();
+
+	if (oneHanded != NULL) oneHandedS = oneHanded->getName();
+
+	if (shield != NULL) shieldS = shield->getName();
+
+
+
+
+	/* ================================= */
+	/* Output Character Info & Equipment */
+	/* ================================= */
+
+	// Output Titles (multiple columns)
+	std::cout << std::endl;
+	std::cout << "  ======================\t" << "=================" << std::endl;
+	std::cout << "  *** Character Info ***\t" << "*** Equipment ***" << std::endl;
+	std::cout << "  ======================\t" << "=================" << std::endl;
+
+
+	// Output Character Name
+	std::cout << "  Name   : " << getName() << "\t\t";
+	// Output Equipped Headpiece
+	if (helm != NULL) std::cout << "Headpiece  : " << helmS << " [DEF+" << helm->getDefense() << "]" << std::endl;
+	else std::cout << "Headpiece  : " << helmS << std::endl;
+
+	// Output Character Class
+	std::cout << "  Class  : " << getClass() << "\t\t";
+	// Output Equipped Chestpiece
+	if (chest != NULL) std::cout << "Chestpiece : " << chestS << " [DEF+" << chest->getDefense() << "]" << std::endl;
+	else std::cout << "Chestpiece : " << chestS << std::endl;
+
+	// Output Character Level
+	std::cout << "  Level  : " << getLevel() << "\t\t\t";
+	// Output Equipped Leggings
+	if (legs != NULL) std::cout << "Leggings   : " << legsS << " [DEF+" << legs->getDefense() << "]" << std::endl;
+	else std::cout << "Leggings   : " << legsS << std::endl;
+
+	// Output Character Experience
+	std::cout << "  EXP    : (" << getEXP() << "/" << getEXPReq() << ")" << "\t\t";
+	// Output Equipped Boots
+	if (boots != NULL) std::cout << "Boots      : " << bootsS << " [DEF+" << boots->getDefense() << "]" << std::endl;
+	else std::cout << "Boots      : " << bootsS << std::endl;
+
+	// Output Character Health
+	std::cout << "  Health : (" << getHealth() << "/" << getMaxHealth() << ")" << "\t\t";
+	std::cout << std::endl;
+
+
+	// One-Handed
+	if (oneHanded != NULL && (mainHand == NULL && offHand == NULL) && shield == NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Weapon
+		std::cout << "Weapon: " << oneHandedS << " [DMG: " << oneHanded->getPower() << "]" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << std::endl;
+	}
+	// Main-Hand & Off-Hand
+	else if (oneHanded == NULL && (mainHand != NULL && offHand != NULL) && shield == NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Main-Hand Weapon
+		std::cout << "Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << "\t";
+		// Output Equipped Off-Hand Weapon
+		std::cout << "Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
+	}
+	// Main-Hand
+	else if (oneHanded == NULL && (mainHand != NULL && offHand == NULL) && shield == NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Main-Hand Weapon
+		std::cout << "Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << "\t";
+		// Output Equipped Off-Hand Weapon
+		std::cout << "Off Hand  : N/A" << std::endl;
+	}
+	// Off-Hand
+	else if (oneHanded == NULL && (mainHand == NULL && offHand != NULL) && shield == NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Main-Hand Weapon
+		std::cout << "Main Hand : N/A" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << "\t";
+		// Output Equipped Off-Hand Weapon
+		std::cout << "Off Hand  : " << offHandS << " [DMG: " << offHand->getPower() << "]" << std::endl;
+	}
+	// Main-Hand & Shield
+	else if (oneHanded == NULL && (mainHand != NULL && offHand == NULL) && shield != NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Main-Hand Weapon
+		std::cout << "Main Hand : " << mainHandS << " [DMG: " << mainHand->getPower() << "]" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << "\t";
+		// Output Equipped Off-Hand Weapon
+		std::cout << "Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
+	}
+	// Shield
+	else if (oneHanded == NULL && (mainHand == NULL && offHand == NULL) && shield != NULL)
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Main-Hand Weapon
+		std::cout << "Main Hand : N/A" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << "\t";
+		// Output Equipped Off-Hand Weapon
+		std::cout << "Off Hand  : " << shieldS << " [DEF+" << shield->getDefense() << "]" << std::endl;
+	}
+	// Empty
+	else
+	{
+		// Output Character Mana
+		std::cout << "  Mana   : " << getMana() << "/" << getMaxMana() << ")" << "\t\t";
+		// Output Equipped Weapon
+		std::cout << "Weapon(s): N/A" << std::endl;
+
+		// Output Separator
+		std::cout << "  ======================" << std::endl;
+	}
+
+	// Line break
+	std::cout << std::endl;
+
+	// Output Strength Stat
+	std::cout << "  STR: " << getSTR() << " [+" << getSTRBoost() << "]" << "\t\t\t";
+	// Output Title Bar
+	std::cout << "===================" << std::endl;
+
+	// Output Agility Stat
+	std::cout << "  AGI: " << getAGI() << " [+" << getAGIBoost() << "]" << "\t\t\t";
+	// Output Title
+	std::cout << "*** Money Pouch ***" << std::endl;
+
+	// Output Defense Stat
+	std::cout << "  DEF: " << getDEF() << " [+" << getDEFBoost() << "]" << "\t\t\t";
+	// Output Title Bar
+	std::cout << "===================" << std::endl;
+
+	// Output Stamina Stat
+	std::cout << "  STA: " << getSTA() << " [+" << getSTABoost() << "]" << "\t\t\t";
+	// Output Gold
+	std::cout << "Gold   : " << getGold() << std::endl;
+
+	// Output Intelligence Stat
+	std::cout << "  INT: " << getINT() << " [+" << getINTBoost() << "]" << "\t\t\t";
+	// Output Silver
+	std::cout << "Silver : " << getSilver() << std::endl;
+
+	// Output Spacing
+	std::cout << "\t\t\t\t";
+	// Output Copper
+	std::cout << "Copper : " << getCopper() << std::endl;
+
+
+
+	/* ================ */
+	/* Output Inventory */
+	/* ================ */
+
+	// Output Title
+	std::cout << std::endl;
+	std::cout << "  =================" << std::endl;
+	std::cout << "  *** Inventory ***" << std::endl;
+	std::cout << "  =================" << std::endl;
+
+	// Initalize variables
+	std::vector<std::string> items;
+	std::map<std::string, size_t> results;
+
+	// Loop for the amount items in the player inventory
+	for (unsigned int i = 0; i < INVENTORY.size(); i++)
+	{
+		// Copy all item names from player inventory
+		items.insert(items.begin() + i, INVENTORY[i].getName());
+		// Make a pair of all item names from the player inventory and zero
+		//   (0 is the starting number for getting item amounts)
+		// i.e. ("Health Potion", 4)  =  4 health potion
+		results.insert(make_pair(INVENTORY[i].getName(), 0));
+	}
+
+	// For each item, add 1 to their item # (2nd map value)
+	for_each(begin(items), end(items), [&](std::string const& s) { ++results[s]; });
+
+	// Loop for the amount items in the player inventory
+	for (auto it = results.cbegin(); it != results.cend(); ++it)
+		// Output player inventory with # of items
+		//   i.e. "Health Potion (x4)"
+		std::cout << "  " << it->first << " (x" << it->second << ")" << std::endl;
+}
+
 
 /*  Encapsulation Methods  */
 // NAME
@@ -465,11 +739,11 @@ std::string Character::getName()
 }
 
 // LOCATION
-void Character::setLocation(std::string area)
+void Character::setArea(std::string area)
 {
 	LOCATION = area;
 }
-std::string Character::getLocation()
+std::string Character::getArea()
 {
 	return LOCATION;
 }
@@ -729,10 +1003,10 @@ double Character::getDodgeRate()
 
 
 
-// currency
+// currencyTotal
 void Character::setCurrency(int amount)
 {
-	currency = amount;
+	currencyTotal = amount;
 
 	setGold();
 	setSilver();
@@ -740,7 +1014,7 @@ void Character::setCurrency(int amount)
 }
 int Character::getCurrency()
 {
-	return currency;
+	return currencyTotal;
 }
 
 // gold
@@ -772,7 +1046,3 @@ int Character::getCopper()
 {
 	return copper;
 }
-
-
-
-// TYPE

@@ -1,24 +1,17 @@
+/*  'Functions' Header File  */
+
 #pragma once
 
-/*  Header Library Imports  */
-/*  ======================  */
+/*  Header Library Import(s)  */
+/*  ========================  */
 #include <iostream>		// Input/Output Library
 #include <string>		// String Library
-#include <algorithm>
-
-// Function Declaration(s) for file 'Choices.cpp'
-std::string getInput(std::string, bool);
-int choiceNum(std::string);
-bool choiceYesNo(std::string, std::string);
-char choiceABC(std::string);
+#include <algorithm>	// Mathematical Function Library
+#include <thread>		// Execution Thread Library
+#include <chrono>		// Time Manipulation Library
 
 
-
-//std::string userChoiceString(std::string text);
-//char userChoiceChar();
-//int userChoiceInteger();
-//bool choiceYesNo(std::string, std::string);
-//char choiceAB();
-//char choiceABC();
-//char choiceABCD();
-//char choiceABCDE();
+/*  Function Declaration(s) for 'Functions.cpp'  */
+/*  ===========================================  */
+void clear();
+void sleep(int);

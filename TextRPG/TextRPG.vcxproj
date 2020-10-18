@@ -140,23 +140,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Choices.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Events.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="Battle.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Choices.h" />
+    <ClInclude Include="Clear.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -7,9 +7,9 @@
 #include <algorithm>	// Vector Array Library
 #include <vector>		// Mathematical Functions Library
 #include <map>			// Map Array Library (contains key value & mapped value)
-//#include <typeinfo>
 
 #include "Equipment.h"	// Equipment Class
+
 
 /*  Character Class  */
 class Character
@@ -17,7 +17,7 @@ class Character
 public:
 	// Constructors
 	Character();
-	Character(std::string, std::string, std::string, int, int);
+	Character(std::string, std::string, std::string, int=1, int=0);
 
 
 	// Method(s)
@@ -33,10 +33,12 @@ public:
 	void equipArmor(Equipment);
 	void unequipArmor(Equipment);
 
+	void Overview();
+
 
 	// Encapsulation Methods
 	void setName(std::string);
-	void setLocation(std::string);
+	void setArea(std::string);
 	void setClass(std::string);
 	void setLevel(int);
 	void setEXP(int);
@@ -47,7 +49,7 @@ public:
 	void setMaxMana(int);
 
 	std::string getName();
-	std::string getLocation();
+	std::string getArea();
 	std::string getClass();
 	int getLevel();
 	int getEXP();
@@ -146,10 +148,12 @@ private:
 	int dmgModifier;  // Damage Modifier
 	double dodgeRate; // Dodge rate ( 0.15 <= x < 0.6 )
 
-	int currency; // Currency Total   (total copper)
-	int gold;	  // Amount of Gold   (calculated from currency)
-	int silver;   // Amount of Silver (calculated from currency)
-	int copper;   // Amount of Copper (calculated from currency)
+	int currencyTotal;			// Currency Total   (total copper)
+	int gold;					// Amount of Gold   (calculated from currency)
+	int silver;					// Amount of Silver (calculated from currency)
+	int copper;					// Amount of Copper (calculated from currency)
+
+	std::vector<int> currency;	// Amount of Currency (gold, silver, copper)
 
 	// Private inventory arrays
 	std::vector<Equipment> INVENTORY; // Items in player's inventory

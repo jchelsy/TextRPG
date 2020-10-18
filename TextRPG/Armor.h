@@ -6,6 +6,7 @@
 /*  =======================  */
 #include "Equipment.h"  // Equipment Class
 
+
 /*  Armor Class  */
 class Armor : public Equipment
 {

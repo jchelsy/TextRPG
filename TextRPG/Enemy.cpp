@@ -5,7 +5,7 @@
 #include "Enemy.h"  // Enemy Class
 
 
-/*  Constructors  */
+/*  Constructor(s)  */
 Enemy::Enemy()
 {  // Default
 
