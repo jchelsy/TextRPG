@@ -22,13 +22,11 @@
 /*  =======================  */
 
 
-
 /*  ===================  */
 /*  === Main Method ===  */
 /*  ===================  */
 int main()
 {
-	print(1, 2, 3.14, "Pass me any number of arguments", "I will print\n");
 	// Initialize local variables
 	char userChoice;
 	bool choice;

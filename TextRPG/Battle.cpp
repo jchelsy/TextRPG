@@ -13,6 +13,48 @@ Character startBattle(Character player)
 
 
 
+
+/* PSEUDOCODE OF GENERALIZED BATTLE METHOD:
+* 
+Character Battle(Character player, Enemy[] enemArray) {
+	COUT: "What enemy to attack first?"
+
+	for (i = 0; i < enemArray.length(); i++) {
+		if (enemArray[i].GetHealth() >= 0) {
+			"A: " + enemArray[i]
+
+			.......
+			(second iteration -- "B: " + enemArray[i])
+		}
+	}
+	// Get user input
+
+	while (<chosen enemy>.GetHealth() >= 0) {
+		// Turn-by-turn battle loop
+	}
+
+	int enemyHealthCount = 0;
+
+	// If all enemies are dead, enemyHealthCount will result as 0
+	for (i = 0; i < enemArray.length(); i++) {
+		enemyHealthCount += enemArray[i].GetHealth();
+	}
+
+	if (enemyHealthCount > 0) {
+		// One or more enemies alive. Start another battle.
+		Battle(player, enemArray);
+	}
+	else {
+		// ALL ENEMIES DEAD!
+	}
+}
+* 
+*/
+
+
+
+
+
 // To handle base case of below recursive 
 // Variadic function Template 
 void print() { }
